@@ -45,7 +45,7 @@ Available as github action. It can automatically generate a new image each day. 
     # one file per line. Each output can be customized with options as query string.
     #
     #  supported options:
-    #  - palette:     A preset of color, one of [github, github-dark, github-light]
+    #  - palette:     A preset of color, one of [github, github-dark, github-light, pacman, pacman-dark]
     #  - color_snake: Color of the snake
     #  - color_dots:  Coma separated list of dots color.
     #                 The first one is 0 contribution, then it goes from the low contribution to the highest.
@@ -54,6 +54,7 @@ Available as github action. It can automatically generate a new image each day. 
       dist/github-snake.svg
       dist/github-snake-dark.svg?palette=github-dark
       dist/ocean.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
+      dist/pacman.svg?palette=pacman
 ```
 
 [example with cron job](https://github.com/Platane/Platane/blob/master/.github/workflows/main.yml#L26-L33)
@@ -69,6 +70,18 @@ For **dark mode** support on github, use this [special syntax](https://docs.gith
   <source media="(prefers-color-scheme: dark)" srcset="github-snake-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="github-snake.svg" />
   <img alt="github-snake" src="github-snake.svg" />
+</picture>
+```
+
+**Pac-Man mode**
+
+Para transformar a animação em um jogo estilo Pac-Man, use a paleta "pacman" ou "pacman-dark":
+
+```html
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="github-pacman-dark.svg?palette=pacman-dark" />
+  <source media="(prefers-color-scheme: light)" srcset="github-pacman.svg?palette=pacman" />
+  <img alt="github-pacman" src="github-pacman.svg?palette=pacman" />
 </picture>
 ```
 
