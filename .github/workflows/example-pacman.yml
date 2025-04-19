@@ -1,0 +1,43 @@
+name: Generate Pac-Man GitHub Contribution Animation
+
+on:
+  # run automatically every 24 hours
+  schedule:
+    - cron: "0 0 * * *"
+  
+  # allows to manually run the job at any time
+  workflow_dispatch:
+  
+  # run on every push on the main branch
+  push:
+    branches:
+      - main
+  
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    
+    steps:
+      # Checkout the repository
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      # Generate the snake game using the PAC-MAN style
+      - name: Generate Pac-Man Animation
+        id: pacman
+        uses: Platane/snk@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/github-pacman.svg?palette=pacman
+            dist/github-pacman-dark.svg?palette=pacman-dark
+      
+      # Push the generated images to a different branch
+      - name: Push To GitHub Pages Branch
+        uses: crazy-max/ghaction-github-pages@v3.1.0
+        with:
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
