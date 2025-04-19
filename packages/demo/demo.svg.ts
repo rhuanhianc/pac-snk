@@ -2,9 +2,15 @@ import "./menu";
 import { getBestRoute } from "@snk/solver/getBestRoute";
 import { createSvg } from "@snk/svg-creator";
 import { grid, snake } from "./sample";
-import { drawOptions } from "./canvas";
+import { drawOptions as baseDrawOptions } from "./canvas"; // Rename imported options
 import { getPathToPose } from "@snk/solver/getPathToPose";
 import type { AnimationOptions } from "@snk/gif-creator";
+
+
+const drawOptions = {
+  ...baseDrawOptions,
+  colorSnake: "#FFCC00",
+};
 
 const chain = getBestRoute(grid, snake);
 chain.push(...getPathToPose(chain.slice(-1)[0], snake)!);
