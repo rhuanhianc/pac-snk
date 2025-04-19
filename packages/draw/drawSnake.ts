@@ -105,7 +105,6 @@ export const drawSnakeLerp = (
   else if (y1 > y0) direction = Math.PI / 2; // baixo
   else if (y1 < y0) direction = 3 * Math.PI / 2; // cima
   
-  // Ângulo da boca para animação
   const now = Date.now() / 200;
   const mouthAngle = (Math.sin(now) + 1) * Math.PI/6 + Math.PI/12;
   
@@ -123,9 +122,7 @@ export const drawSnakeLerp = (
   ctx.fill();
   ctx.restore();
   
-  // Não desenha o corpo para o tema Pac-Man
   if (o.colorSnake !== "#FFCC00") {
-    // Desenha o corpo
     for (let i = 1; i < n; i++) {
       const ki = clamp((k - (1 - m) * (i / Math.max(n - 1, 1))) / m, 0, 1);
       
@@ -139,7 +136,6 @@ export const drawSnakeLerp = (
         yi * o.sizeCell + o.sizeCell/2
       );
       
-      // Desenhar corpo como pontos
       ctx.beginPath();
       ctx.arc(0, 0, o.sizeCell * 0.35, 0, 2 * Math.PI);
       ctx.fill();
