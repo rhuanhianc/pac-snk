@@ -36,6 +36,9 @@ jobs:
             dist/github-contribution-grid-snake.svg
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark
             dist/github-contribution-grid-snake.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
+            dist/github-pacman.svg?game=pacman&palette=pacman
+            dist/github-pacman-dark.svg?game=pacman&palette=pacman-dark
+            
 
       - name: ensure the generated file exists
         run: |
@@ -69,7 +72,7 @@ jobs:
         id: generate-snake
         uses: ./svg-only
         with:
-          github_user_name: platane
+          github_user_name: rhuanhianc
           outputs: |
             dist/github-contribution-grid-snake.svg
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark
