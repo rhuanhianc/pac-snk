@@ -2,7 +2,7 @@ name: main
 
 on:
   schedule:
-    - cron: "0 */48 * * *"
+    - cron: "0 0 */7 * *" # Roda de 7 em 7 dias
   workflow_dispatch:
 
 jobs:
