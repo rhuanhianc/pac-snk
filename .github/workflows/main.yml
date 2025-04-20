@@ -40,9 +40,9 @@ jobs:
           # Usando a opção 'game' que adicionamos no outputsOptions.ts
           outputs: |
             dist/github-snake.svg
-            dist/github-pacman.svg?game=pacman&palette=pacman
+            dist/github-pacman.svg?palette=pacman
             dist/github-snake-dark.svg?palette=github-dark
-            dist/github-pacman-dark.svg?game=pacman&palette=pacman-dark
+            dist/github-pacman-dark.svg?palette=pacman-dark
 
 
       - name: Deploy to GitHub Pages Branch
