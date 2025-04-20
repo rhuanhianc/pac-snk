@@ -1,4 +1,4 @@
-# snk
+# pac-snk
 
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/platane/platane/main.yml?label=action&style=flat-square)](https://github.com/Platane/Platane/actions/workflows/main.yml)
 [![GitHub release](https://img.shields.io/github/release/platane/snk.svg?style=flat-square)](https://github.com/platane/snk/releases/latest)
@@ -9,18 +9,9 @@
 Generates a snake game from a github user contributions graph
 
 <picture>
-  <source
-    media="(prefers-color-scheme: dark)"
-    srcset="https://raw.githubusercontent.com/platane/snk/output/github-contribution-grid-snake-dark.svg"
-  />
-  <source
-    media="(prefers-color-scheme: light)"
-    srcset="https://raw.githubusercontent.com/platane/snk/output/github-contribution-grid-snake.svg"
-  />
-  <img
-    alt="github contribution grid snake animation"
-    src="https://raw.githubusercontent.com/platane/snk/output/github-contribution-grid-snake.svg"
-  />
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/rhuanhianc/pac-snk/blob/output-svg-only/github-pacman-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/rhuanhianc/pac-snk/blob/output-svg-only/github-pacman.svg" />
+  <img alt="github-snake" src="github-snake.svg" />
 </picture>
 
 Pull a github user's contribution graph.
