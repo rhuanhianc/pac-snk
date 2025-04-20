@@ -6,4 +6,3 @@ build
 .env
 .wrangler
 .dev.vars
-package-lock.json
