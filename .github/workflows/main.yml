@@ -17,6 +17,31 @@ jobs:
 
       - run: npm run type
       - run: npm run lint
+      
+      - name: Verify action dist is up to date
+        run: |
+          npm run build:action
+          if [ -n "$(git status --porcelain packages/action/dist)" ]; then
+            echo "=========================================="
+            echo "Error: packages/action/dist is not up to date!"
+            echo "=========================================="
+            echo ""
+            echo "This means the source code in packages/action was modified"
+            echo "without rebuilding the bundled dist files."
+            echo ""
+            echo "To fix this:"
+            echo "  1. Run: npm run build:action"
+            echo "  2. Commit the updated dist files"
+            echo "  3. Push your changes"
+            echo ""
+            echo "Changes detected:"
+            git status packages/action/dist
+            echo ""
+            echo "Diff:"
+            git diff packages/action/dist
+            exit 1
+          fi
+      
       - run: bun test
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
