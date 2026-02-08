@@ -17,6 +17,17 @@ jobs:
 
       - run: npm run type
       - run: npm run lint
+      
+      - name: Verify action dist is up to date
+        run: |
+          npm run build:action
+          if [ -n "$(git status --porcelain packages/action/dist)" ]; then
+            echo "Error: packages/action/dist is not up to date. Please run 'npm run build:action' and commit the changes."
+            git status packages/action/dist
+            git diff packages/action/dist
+            exit 1
+          fi
+      
       - run: bun test
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
